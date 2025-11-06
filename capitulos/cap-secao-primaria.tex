@@ -12,7 +12,7 @@ O microcontrolador consiste em um computador completo em um chip, contendo um pr
 
 \subsubsection{ESP32}
 
-O ESP32 é um SoC de baixo custo desenvolvido pela Espressif Systems, frojetado especificamente para uma vasta gama de aplicações, desde redes de sensores de baixa potência até tarefas complexas, sendo um componente central na prototipagem e desenvolvimento de projetos de Internet das Coisas (IoT). \cite{ESPRESSIF:2016}
+O ESP32 é um SoC de baixo custo desenvolvido pela Espressif Systems, projetado especificamente para uma vasta gama de aplicações, desde redes de sensores de baixa potência até tarefas complexas, sendo um componente central na prototipagem e desenvolvimento de projetos de Internet das Coisas (IoT). \cite{ESPRESSIF:2016}
 
 Trata-se de um chip híbrido que integra conectividade Wi-Fi (802.11 b/g/n) e Bluetooth em um único módulo. \cite{ESPRESSIF:ESP32DS}
 
@@ -27,7 +27,7 @@ A medição de energia elétrica é importante para o monitoramento do fluxo de 
 
 A  potência ativa é a parcela da energia que pode ser convertida em trabalho útil (como calor ou luz) e é medida em quilowatts (kW). A potência reativa, expressa em quilovolt-ampères reativos (kVAR), está associada à energia necessária para criar e manter campos magnéticos em equipamentos indutivos (como motores e transformadores), não realizando trabalho útil, mas é necessária para que esses dispositivos funcionem. Já a potência aparente (kVA) é a combinação vetorial das potências ativa e reativa, representa a potência total fornecida pela rede. \cite{WILDI:2013}
 
-O faturamento de energia elétrica no setor residencial é feito somente com base na potência ativa consumida. A potência reativa, apesar de estar presente em todos os consumidores, com diversos graus de severidade, só é levada em consideração para consumidores de alta tensão, dos quais multas serão cobradas caso o consumo de potencia reativa exceda o limite. \cite{ANEEL:2000}
+O faturamento de energia elétrica no setor residencial é feito somente com base na potência ativa consumida. A potência reativa, apesar de estar presente em todos os consumidores, com diversos graus de severidade, só é levada em consideração para consumidores de alta tensão, dos quais multas serão cobradas caso o consumo de potência reativa exceda o limite. \cite{ANEEL:2000}
 
 \subsection{Transformadores}
 
@@ -49,7 +49,7 @@ O enrolamento conectado à fonte de energia elétrica é denominado enrolamento 
 
 \subsubsection{Transformadores de corrente}
 
-São transformadores de especializados utilizados em série com uma linha de transmissão para medir com precisão a corrente alternada que flui pela rede. Devido a natureza de seu uso, como medição e proteção de sistemas, a potencia desses transformadores costuma ser pequena, normalmente abaixo de 200 VA. \cite[p. 189]{WILDI:2013}
+São transformadores de especializados utilizados em série com uma linha de transmissão para medir com precisão a corrente alternada que flui pela rede. Devido a natureza de seu uso, como medição e proteção de sistemas, a potência desses transformadores costuma ser pequena, normalmente abaixo de 200 VA. \cite[p. 189]{WILDI:2013}
 
 A variação com nucleo partido é particularmente interessante pois pode ser facilmente instalado em um sistema existente sem necessidade de desconectar a linha ou interromper o fornecimento de energia. \cite{SIEMENS:2015}
 
@@ -64,7 +64,7 @@ A variação com nucleo partido é particularmente interessante pois pode ser fa
 
 \section{Medição do Fluxo de Água} %usar fotos das peças que eu tenho
 
-A medição e monitoramento do fluxo de água são processos importantes no gerenciamento de recursos hidricos, o que levou ao desenvolvimento de diversos metodos e ferramentas para tratar desses processos, as quais apresentam diferentes graus de viabilidade de acordo com a aplicação.
+A medição e monitoramento do fluxo de água são processos importantes no gerenciamento de recursos hídricos, o que levou ao desenvolvimento de diversos metodos e ferramentas para tratar desses processos, as quais apresentam diferentes graus de viabilidade de acordo com a aplicação.
 
 Para corpos aquaticos como rios e riachos, temos métodos como a medição por molinete, o método do flutuador, a técnica de vertedores e sensores ultrassônicos de nível, que permitem estimar a vazão com base na velocidade da corrente e na area da seção transversal do curso d’água \cite{COSTA_Camargo_Tolentino_Akutsu_Periotto_Tanaka:2023}.
 
@@ -76,7 +76,7 @@ Já em ambientes controlados onde os liquidos são transportados por meio de enc
 
 \subsection{YF-S201}
 
-O sensor de vazão de água YF-S201, ilustrado na Figura~\ref{fig:YF-S201} é composto por uma turbina com um ímã acoplado e um sensor de efeito Hall. O fluxo de agua por dentro do sensor faz com que a turbina gire, o que movimenta o imã que por sua vez aciona o sensor de efeito Hall, o que, por fim, gera um numero de pulsos eletricos proporcionais ao fluxo de agua que podem ser lidos e interpretados por um sitema de controle, como um microcontrolador.
+O sensor de vazão de água YF-S201, ilustrado na Figura~\ref{fig:YF-S201} é composto por uma turbina com um ímã acoplado e um sensor de efeito Hall. O fluxo de água por dentro do sensor faz com que a turbina gire, o que movimenta o imã que por sua vez aciona o sensor de efeito Hall, o que, por fim, gera um numero de pulsos elétricos proporcionais ao fluxo de água que podem ser lidos e interpretados por um sitema de controle, como um microcontrolador.
 
 \begin{figure}[!htb]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
