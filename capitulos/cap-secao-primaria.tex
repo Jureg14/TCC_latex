@@ -2,58 +2,46 @@
 
 Neste trecho são apresentados os pilares teóricos sobre os quais o trabalho é estruturado.
 
-\section{Consumo Consciente}
+\section{Sistemas Embarcados}
 
-Eficiência Energética e Hídrica Residencial: Discutir o impacto do consumo doméstico na matriz energética e hídrica do país.
-
-O Chuveiro Elétrico como Ponto Crítico: Apresentar dados sobre como o chuveiro elétrico é um dos maiores consumidores de energia e água em uma residência.
-
-Consumo Consciente e a Psicologia do Feedback: Explicar a importância do feedback em tempo real para a mudança de hábitos (o seu README.md menciona isso como um objetivo central). (colocar no final?)
-
-\section{Hardware Embarcado}
-
-
+Um sistema embarcado é uma combinação integrada de hardware e software, sendo projetada para uma função especifica. Em contraste com os computadores de uso pessoal, que atuam executando uma ampla gama de tarefas, os sistemas embarcados são criados de forma a executarem uma tarefa em especifico, sendo frequentemente utilizados como parte de um sistema maior, como eletrodomésticos e automóveis.\cite[p. 1]{BARR:2006}
 
 \subsection{Microcontroladores}
 
+O microcontrolador consiste em um computador completo em um chip, contendo um processador, memória e interfaces de entrada/saída em um sistema integrado. Essa arquitetura integrada permite criar soluções compactas e de baixo custo para aplicações específicas, sendo o cérebro de grande parte dos sistemas embarcados onde o controle de dispositivos é necessário, atuando no processamento de dados de sensores ou automatizando tarefas.\cite{VALDESPEREZ:2013}
 
+\subsubsection{ESP32}
 
-\subsection{ESP32}
+O ESP32 é um SoC de baixo custo desenvolvido pela Espressif Systems, frojetado especificamente para uma vasta gama de aplicações, desde redes de sensores de baixa potência até tarefas complexas, sendo um componente central na prototipagem e desenvolvimento de projetos de Internet das Coisas (IoT). \cite{ESPRESSIF:2016}
 
+Trata-se de um chip híbrido que integra conectividade Wi-Fi (802.11 b/g/n) e Bluetooth em um único módulo. \cite{ESPRESSIF:ESP32DS}
 
 
 \section{Internet das Coisas}
 
-Definição e Arquitetura de IoT: O que é Internet das Coisas? Explicar a arquitetura básica (Sensores -> Processamento/Conectividade -> Interface/Ação).
-
-Sistemas Embarcados (Sistemas Embebidos): Definir o que são, seu papel em IoT e o conceito de microcontrolador.
-
-O Microcontrolador ESP32: Explicar por que este componente é ideal para projetos de IoT, focando em:
-
-    Baixo Custo.
-
-    Processamento (Dual Core).
-
-    Conectividade embarcada (Wi-Fi e Bluetooth), que é a base do seu projeto.
+A Internet das Coisas (IoT) pode ser compreendida como uma rede na qual objetos físicos podem formar conexões entre si. Esses objetos podem ser equipados com sensores, atuadores e módulos de comunicação sem fio, interagindo entre si e com servidores centrais, formando um sistema inteligente e versatil, o qual pode ser aplicado em diversos setores, como agricultura, indústria, logística, e automação residencial. \cite{ATZORI20102787}
 
 \section{Medição de Energia Elétrica}
 
-Conceitos de Potência em Corrente Alternada (CA): Explicar brevemente o que é potência ativa (kW), potência reativa (kVAR) e potência aparente (kVA), e por que a medição de potência ativa é a correta para calcular o custo.
+A medição de energia elétrica é importante para o monitoramento do fluxo de energia em sistemas de distribuição. Na corrente alternada (CA), a potência elétrica é constituida por três componentes fundamentais: potência ativa (kW), potência reativa (kVAR) e potência aparente (kVA). 
 
-Transformadores de Corrente (TCs): (Como você já pediu) Explicar o princípio de funcionamento dos transformadores.
+A  potência ativa é a parcela da energia que pode ser convertida em trabalho útil (como calor ou luz) e é medida em quilowatts (kW). A potência reativa, expressa em quilovolt-ampères reativos (kVAR), está associada à energia necessária para criar e manter campos magnéticos em equipamentos indutivos (como motores e transformadores), não realizando trabalho útil, mas é necessária para que esses dispositivos funcionem. Já a potência aparente (kVA) é a combinação vetorial das potências ativa e reativa, representa a potência total fornecida pela rede. \cite{WILDI:2013}
+
+O faturamento de energia elétrica no setor residencial é feito somente com base na potência ativa consumida. A potência reativa, apesar de estar presente em todos os consumidores, com diversos graus de severidade, só é levada em consideração para consumidores de alta tensão, dos quais multas serão cobradas caso o consumo de potencia reativa exceda o limite. \cite{ANEEL:2000}
 
 \subsection{Transformadores}
 
-O transformador é um dispositivo eletromagnético estático que transfere energia elétrica entre dois ou mais circuitos através da indução eletromagnética. Sua função principal é alterar o nível de tensão da corrente alternada (CA), aumentando-o ou diminuindo-o, sem modificar a frequência. \cite[p. 189]{WILDI:2006} 
+O transformador é um dispositivo eletromagnético estático que transfere energia elétrica entre dois ou mais circuitos através da indução eletromagnética. Ilustrado na Figura~\ref{fig:transIdeal} Sua função principal é alterar o nível de tensão da corrente alternada (CA), aumentando-o ou diminuindo-o, sem modificar a frequência. \cite[p. 189]{WILDI:2013} 
 
 \begin{figure}[!htb]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
      \caption{Desenho esquemático de um transformador ideal}%% Legenda
-     \label{fig:exemplo2}%% Rótulo
+     \label{fig:transIdeal}%% Rótulo
      \includegraphics[scale=0.5]{transformador_basico_Chapman}%% Dimensões e localização
      \fonte{Adaptado de \cite{CHAPMAN:2013}}%% Fonte
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Desenho esquemático de um transformador ideal}
  \end{figure}
+\FloatBarrier
 
 Estruturalmente, o transformador é composto por duas ou mais bobinas condutoras enroladas sobre um núcleo comum de material ferromagnético. Em geral, essas bobinas não apresentam conexão elétrica direta entre si, sendo o acoplamento realizado exclusivamente através do fluxo magnético compartilhado no interior do núcleo.
 
@@ -61,27 +49,59 @@ O enrolamento conectado à fonte de energia elétrica é denominado enrolamento 
 
 \subsubsection{Transformadores de corrente}
 
-São transformadores de especializados utilizados em série em uma linha de transmissão para medir com precisão a corrente alternada que flui pela rede. Devido a natureza de seu uso, como medição e proteção de sistemas, a potencia desses transformadores costuma ser pequena, normlmente abaixo de 200 VA. \cite[p. 189]{WILDI:2006}
+São transformadores de especializados utilizados em série com uma linha de transmissão para medir com precisão a corrente alternada que flui pela rede. Devido a natureza de seu uso, como medição e proteção de sistemas, a potencia desses transformadores costuma ser pequena, normalmente abaixo de 200 VA. \cite[p. 189]{WILDI:2013}
 
 A variação com nucleo partido é particularmente interessante pois pode ser facilmente instalado em um sistema existente sem necessidade de desconectar a linha ou interromper o fornecimento de energia. \cite{SIEMENS:2015}
 
 \begin{figure}[!htb]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
      \caption{transformador de corrente de nucleo bipartido}%% Legenda
-     \label{fig:exemplo2}%% Rótulo
-     \includegraphics[scale=0.5]{transformador_nucleo_bipartido}%% Dimensões e localização
-     \fonte{Adaptado de \cite{CHAPMAN:2013}}%% Fonte
-     \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}transformador de corrente de nucleo bipartido}
+     \label{fig:transUsado}%% Rótulo
+     \includegraphics[scale=0.1]{transformador_nucleo_bipartido}%% Dimensões e localização
+     \fonte{Autoria Própria}%% Fonte
+     \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}transformador de corrente de nucleo bipartido}
  \end{figure}
 
-\section{Medição de Fluxo de Água}
+\section{Medição do Fluxo de Água} %usar fotos das peças que eu tenho
 
-Tecnologia: Explique o funcionamento do sensor de fluxo (como o YF-S201 mencionado no README.md).
+A medição e monitoramento do fluxo de água são processos importantes no gerenciamento de recursos hidricos, o que levou ao desenvolvimento de diversos metodos e ferramentas para tratar desses processos, as quais apresentam diferentes graus de viabilidade de acordo com a aplicação.
 
-Princípio de Funcionamento: Detalhe o Efeito Hall. Explique que o sensor possui uma turbina com um ímã acoplado. À medida que a água passa, ela gira a turbina, e o sensor de Efeito Hall detecta esse movimento, gerando um número de pulsos elétricos.
+Para corpos aquaticos como rios e riachos, temos métodos como a medição por molinete, o método do flutuador, a técnica de vertedores e sensores ultrassônicos de nível, que permitem estimar a vazão com base na velocidade da corrente e na area da seção transversal do curso d’água \cite{COSTA_Camargo_Tolentino_Akutsu_Periotto_Tanaka:2023}.
 
-Calibração: Explique como esses pulsos são convertidos em litros/minuto (a constante de calibração, pulsevolume no main.cpp).
-
-\section{Psicologia da Conservação} %%talvez
+Já em ambientes controlados onde os liquidos são transportados por meio de encanamentos, como em sistemas de abastecimento domestico, comercial e industrial, outros metodos podem ser aplicados, tais como hidrômetros mecânicos, sensores eletromagnéticos e sensores ultrassônicos \cite{flow:2016}.
 
 
+
+%Em aplicações residenciais e prediais, os hidrômetros são os dispositivos mais comuns, projetados para registrar o consumo acumulado ao longo do tempo com precisão e confiabilidade. 
+
+\subsection{YF-S201}
+
+O sensor de vazão de água YF-S201, ilustrado na Figura~\ref{fig:YF-S201} é composto por uma turbina com um ímã acoplado e um sensor de efeito Hall. O fluxo de agua por dentro do sensor faz com que a turbina gire, o que movimenta o imã que por sua vez aciona o sensor de efeito Hall, o que, por fim, gera um numero de pulsos eletricos proporcionais ao fluxo de agua que podem ser lidos e interpretados por um sitema de controle, como um microcontrolador.
+
+\begin{figure}[!htb]%% Ambiente figure
+     %\captionsetup{width=0.55\textwidth}%% Largura da legenda
+     \caption{sensor YF-S201}%% Legenda
+     \label{fig:YF-S201}%% Rótulo
+     \includegraphics[scale=0.1]{figuras/YF-S201.jpg}%% Dimensões e localização
+     \fonte{Autoria Própria}%% Fonte
+     \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}sensor YF-S201}
+ \end{figure}
+
+%\section{Custo do chuveiro elétrico} %tenho que esplicar o porque ele é ruim em algum lugar %movido para a justificativa
+
+%No Brasil, o chuveiro elétrico é um dos aparelhos eletrodomésticos mais comuns nas residências, de acordo com \cite{EPE:PDE2031:2022}, é presente em mais de 70\% dos lares. Sua popularidade se deve ao seu baixo custo e facilidade de instalação, que dispensa a complexa infraestrutura exigida por sistemas a gás ou solar. No entanto, esse aparelho é também um dos maiores responsáveis pelo consumo residencial de energia elétrica.
+
+%O consumo de energia elétrica do chuveiro é o terceiro maior em uma residência típica, ficando atrás apenas do ar-condicionado e da geladeira. Em média, o chuveiro elétrico responde por cerca de 14\% do consumo total de energia elétrica doméstica \cite{EPE:PDE2031:2022}. Um banho de 15 minutos em um chuveiro de 5,5 kW, por exemplo, consome cerca de 1,375 kWh, o que, multiplicado pelo valor médio da tarifa residencial no Brasil (aproximadamente R\$ 0,78/kWh, em 2025 \cite{ANEEL:RankingTarifas:2022}), representa um custo em torno de R\$ 1,07 por banho — valor que pode dobrar em regiões com bandeiras tarifárias vermelhas ou escassez hídrica. 
+
+%Além do impacto causado por seu alto consumo energético, o uso do chuveiro elétrico também está diretamente ligado ao consumo de água, de acordo com \cite{MARZALL_NASCIMENTO:2023} pode ser atribuido a 25,89\% da água consumida por uma residencia. Um chuveiro convencional pode consumir entre 4 e 6 litros de água por minuto \cite{NORTEAQUECEDORES:2018}, o que significa que um único banho de 15 minutos pode gastar até 180 litros de água. Esse volume representa uma parcela significativa do consumo diário per capita, estimado em 148,2 litros \cite{SNSA:SNIS_AE_2023}. 
+
+%Portanto, o chuveiro elétrico exerce uma dupla pressão sobre os recursos domésticos: eleva os custos com energia elétrica e contribui substancialmente para o consumo de água potável.
+
+
+%\section{Psicologia da Conservação} %%talvez
+
+%A Psicologia da Conservação estuda como fatores psicológicos influenciam o comportamento humano em relação ao uso sustentável de recursos naturais. Nesse contexto, duas abordagens centrais são o eco-feedback e a teoria do nudge. 
+
+%O eco-feedback (ou feedback ecológico) refere-se à prática de fornecer aos indivíduos informações claras, contínuas e, preferencialmente, em tempo real ou quase real sobre seu consumo de recursos, como energia elétrica, água ou gás. Esse retorno imediato permite que as pessoas percebam as consequências de suas ações, aumentando a conscientização e facilitando a autorregulação do comportamento. Estudos demonstram que o eco-feedback pode levar a reduções significativas no consumo, especialmente quando as informações são apresentadas de forma compreensível, contextualizada e associada a metas ou comparações sociais. 
+
+%Complementarmente, a teoria do nudge (termo cunhado por Thaler e Sunstein, 2008) propõe que pequenas alterações no design do ambiente de escolha — sem restringir opções ou alterar incentivos econômicos — podem orientar as pessoas a tomar decisões mais benéficas, como o uso consciente de energia. Um nudge eficaz é sutil, previsível e respeita a liberdade de escolha. No âmbito da conservação, o eco-feedback atua como um nudge cognitivo, destacando informações relevantes que, de outra forma, permaneceriam invisíveis no cotidiano. 
