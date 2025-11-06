@@ -1,0 +1,87 @@
+\chapter{FUNDAMENTAÇÃO TEÓRICA}
+
+Neste trecho são apresentados os pilares teóricos sobre os quais o trabalho é estruturado.
+
+\section{Consumo Consciente}
+
+Eficiência Energética e Hídrica Residencial: Discutir o impacto do consumo doméstico na matriz energética e hídrica do país.
+
+O Chuveiro Elétrico como Ponto Crítico: Apresentar dados sobre como o chuveiro elétrico é um dos maiores consumidores de energia e água em uma residência.
+
+Consumo Consciente e a Psicologia do Feedback: Explicar a importância do feedback em tempo real para a mudança de hábitos (o seu README.md menciona isso como um objetivo central). (colocar no final?)
+
+\section{Hardware Embarcado}
+
+
+
+\subsection{Microcontroladores}
+
+
+
+\subsection{ESP32}
+
+
+
+\section{Internet das Coisas}
+
+Definição e Arquitetura de IoT: O que é Internet das Coisas? Explicar a arquitetura básica (Sensores -> Processamento/Conectividade -> Interface/Ação).
+
+Sistemas Embarcados (Sistemas Embebidos): Definir o que são, seu papel em IoT e o conceito de microcontrolador.
+
+O Microcontrolador ESP32: Explicar por que este componente é ideal para projetos de IoT, focando em:
+
+    Baixo Custo.
+
+    Processamento (Dual Core).
+
+    Conectividade embarcada (Wi-Fi e Bluetooth), que é a base do seu projeto.
+
+\section{Medição de Energia Elétrica}
+
+Conceitos de Potência em Corrente Alternada (CA): Explicar brevemente o que é potência ativa (kW), potência reativa (kVAR) e potência aparente (kVA), e por que a medição de potência ativa é a correta para calcular o custo.
+
+Transformadores de Corrente (TCs): (Como você já pediu) Explicar o princípio de funcionamento dos transformadores.
+
+\subsection{Transformadores}
+
+O transformador é um dispositivo eletromagnético estático que transfere energia elétrica entre dois ou mais circuitos através da indução eletromagnética. Sua função principal é alterar o nível de tensão da corrente alternada (CA), aumentando-o ou diminuindo-o, sem modificar a frequência. \cite[p. 189]{WILDI:2006} 
+
+\begin{figure}[!htb]%% Ambiente figure
+     %\captionsetup{width=0.55\textwidth}%% Largura da legenda
+     \caption{Desenho esquemático de um transformador ideal}%% Legenda
+     \label{fig:exemplo2}%% Rótulo
+     \includegraphics[scale=0.5]{transformador_basico_Chapman}%% Dimensões e localização
+     \fonte{Adaptado de \cite{CHAPMAN:2013}}%% Fonte
+     \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Desenho esquemático de um transformador ideal}
+ \end{figure}
+
+Estruturalmente, o transformador é composto por duas ou mais bobinas condutoras enroladas sobre um núcleo comum de material ferromagnético. Em geral, essas bobinas não apresentam conexão elétrica direta entre si, sendo o acoplamento realizado exclusivamente através do fluxo magnético compartilhado no interior do núcleo.
+
+O enrolamento conectado à fonte de energia elétrica é denominado enrolamento primário ou de entrada, enquanto o enrolamento responsável por fornecer energia à carga é denominado enrolamento secundário ou de saída. Quando presente, um terceiro enrolamento recebe a designação de enrolamento terciário, sendo empregado em aplicações específicas, conforme a finalidade do transformador. \cite[p. 66]{CHAPMAN:2013}
+
+\subsubsection{Transformadores de corrente}
+
+São transformadores de especializados utilizados em série em uma linha de transmissão para medir com precisão a corrente alternada que flui pela rede. Devido a natureza de seu uso, como medição e proteção de sistemas, a potencia desses transformadores costuma ser pequena, normlmente abaixo de 200 VA. \cite[p. 189]{WILDI:2006}
+
+A variação com nucleo partido é particularmente interessante pois pode ser facilmente instalado em um sistema existente sem necessidade de desconectar a linha ou interromper o fornecimento de energia. \cite{SIEMENS:2015}
+
+\begin{figure}[!htb]%% Ambiente figure
+     %\captionsetup{width=0.55\textwidth}%% Largura da legenda
+     \caption{transformador de corrente de nucleo bipartido}%% Legenda
+     \label{fig:exemplo2}%% Rótulo
+     \includegraphics[scale=0.5]{transformador_nucleo_bipartido}%% Dimensões e localização
+     \fonte{Adaptado de \cite{CHAPMAN:2013}}%% Fonte
+     \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}transformador de corrente de nucleo bipartido}
+ \end{figure}
+
+\section{Medição de Fluxo de Água}
+
+Tecnologia: Explique o funcionamento do sensor de fluxo (como o YF-S201 mencionado no README.md).
+
+Princípio de Funcionamento: Detalhe o Efeito Hall. Explique que o sensor possui uma turbina com um ímã acoplado. À medida que a água passa, ela gira a turbina, e o sensor de Efeito Hall detecta esse movimento, gerando um número de pulsos elétricos.
+
+Calibração: Explique como esses pulsos são convertidos em litros/minuto (a constante de calibração, pulsevolume no main.cpp).
+
+\section{Psicologia da Conservação} %%talvez
+
+
