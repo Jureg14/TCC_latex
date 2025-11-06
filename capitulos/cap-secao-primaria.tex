@@ -2,34 +2,41 @@
 
 Neste trecho são apresentados os pilares teóricos sobre os quais o trabalho é estruturado.
 
-\section{Sistemas Embarcados}
+\section{Sistemas Embarcados} %ok
 
 Um sistema embarcado é uma combinação integrada de hardware e software, sendo projetada para uma função especifica. Em contraste com os computadores de uso pessoal, que atuam executando uma ampla gama de tarefas, os sistemas embarcados são criados de forma a executarem uma tarefa em especifico, sendo frequentemente utilizados como parte de um sistema maior, como eletrodomésticos e automóveis.\cite[p. 1]{BARR:2006}
 
-\subsection{Microcontroladores}
+\subsection{Microcontroladores} %ok
 
 O microcontrolador consiste em um computador completo em um chip, contendo um processador, memória e interfaces de entrada/saída em um sistema integrado. Essa arquitetura integrada permite criar soluções compactas e de baixo custo para aplicações específicas, sendo o cérebro de grande parte dos sistemas embarcados onde o controle de dispositivos é necessário, atuando no processamento de dados de sensores ou automatizando tarefas.\cite{VALDESPEREZ:2013}
 
-\subsubsection{ESP32}
+\subsubsection{ESP32} %ok
 
 O ESP32 é um SoC de baixo custo desenvolvido pela Espressif Systems, projetado especificamente para uma vasta gama de aplicações, desde redes de sensores de baixa potência até tarefas complexas, sendo um componente central na prototipagem e desenvolvimento de projetos de Internet das Coisas (IoT). \cite{ESPRESSIF:2016}
 
 Trata-se de um chip híbrido que integra conectividade Wi-Fi (802.11 b/g/n) e Bluetooth em um único módulo. \cite{ESPRESSIF:ESP32DS}
 
 
-\section{Internet das Coisas}
+\section{Internet das Coisas} %ok
 
 A Internet das Coisas (IoT) pode ser compreendida como uma rede na qual objetos físicos podem formar conexões entre si. Esses objetos podem ser equipados com sensores, atuadores e módulos de comunicação sem fio, interagindo entre si e com servidores centrais, formando um sistema inteligente e versatil, o qual pode ser aplicado em diversos setores, como agricultura, indústria, logística, e automação residencial. \cite{ATZORI20102787}
 
-\section{Medição de Energia Elétrica}
+\section{Medição de Energia Elétrica} %parece bom
+%A medição de energia elétrica é relevante para o controle do fluxo de energia nos sistemas de distribuição de energia. Sendo assim, a mesma, na corrente alternada, é constituida por três elementos fundamentais que compõem a potência elétrica: potência ativa (kW), potência reativa (kVAR) e potência aparente (kVA).
+A medição de energia elétrica é relevante para o controle do fluxo de energia nos sistemas de distribuição. Sendo assim, na corrente alternada, a energia é constituida por três elementos fundamentais que compõem a potência elétrica: potência ativa (kW), potência reativa (kVAR) e potência aparente (kVA).
 
-A medição de energia elétrica é importante para o monitoramento do fluxo de energia em sistemas de distribuição. Na corrente alternada (CA), a potência elétrica é constituida por três componentes fundamentais: potência ativa (kW), potência reativa (kVAR) e potência aparente (kVA). 
+A potência ativa é a parte da energia que pode ser convertida em trabalho útil (calor ou luz) e que é medida em quilowatts (kW). A potência reativa se expressa em quilovolt-ampères reativos (kVAR) e é aquela que requer energia para criar e manter, em equipamentos indutivos (emotor, transformador), os campos magnéticos que necessitam para operar; a potência aparente (kVA) é a combinação vetorial entre a potência ativa e reativa, e representa a potência fornecida pela rede\cite{WILDI:2013}.
 
-A  potência ativa é a parcela da energia que pode ser convertida em trabalho útil (como calor ou luz) e é medida em quilowatts (kW). A potência reativa, expressa em quilovolt-ampères reativos (kVAR), está associada à energia necessária para criar e manter campos magnéticos em equipamentos indutivos (como motores e transformadores), não realizando trabalho útil, mas é necessária para que esses dispositivos funcionem. Já a potência aparente (kVA) é a combinação vetorial das potências ativa e reativa, representa a potência total fornecida pela rede. \cite{WILDI:2013}
+O faturamento de energia elétrica do setor residencial é feito apenas em função da potência ativa consumida. Já a potência reativa, apesar de estar presente em todos os consumidores, em diversos graus de severidade, é faturada somente para os consumidores de alta tensão, sobre os quais serão cobradas multas para o consumo de potência reativa acima do limite\cite{ANEEL:2000}.
 
-O faturamento de energia elétrica no setor residencial é feito somente com base na potência ativa consumida. A potência reativa, apesar de estar presente em todos os consumidores, com diversos graus de severidade, só é levada em consideração para consumidores de alta tensão, dos quais multas serão cobradas caso o consumo de potência reativa exceda o limite. \cite{ANEEL:2000}
 
-\subsection{Transformadores}
+%A medição de energia elétrica é importante para o monitoramento do fluxo de energia em sistemas de distribuição. Na corrente alternada (CA), a potência elétrica é constituida por três componentes fundamentais: potência ativa (kW), potência reativa (kVAR) e potência aparente (kVA). 
+
+%A  potência ativa é a parcela da energia que pode ser convertida em trabalho útil (como calor ou luz) e é medida em quilowatts (kW). A potência reativa, expressa em quilovolt-ampères reativos (kVAR), está associada à energia necessária para criar e manter campos magnéticos em equipamentos indutivos (como motores e transformadores), não realizando trabalho útil, mas é necessária para que esses dispositivos funcionem. Já a potência aparente (kVA) é a combinação vetorial das potências ativa e reativa, representa a potência total fornecida pela rede. \cite{WILDI:2013}
+
+%O faturamento de energia elétrica no setor residencial é feito somente com base na potência ativa consumida. A potência reativa, apesar de estar presente em todos os consumidores, com diversos graus de severidade, só é levada em consideração para consumidores de alta tensão, dos quais multas serão cobradas caso o consumo de potência reativa exceda o limite. \cite{ANEEL:2000}
+
+\subsection{Transformadores} %ok
 
 O transformador é um dispositivo eletromagnético estático que transfere energia elétrica entre dois ou mais circuitos através da indução eletromagnética. Ilustrado na Figura~\ref{fig:transIdeal} Sua função principal é alterar o nível de tensão da corrente alternada (CA), aumentando-o ou diminuindo-o, sem modificar a frequência. \cite[p. 189]{WILDI:2013} 
 
@@ -64,15 +71,13 @@ A variação com nucleo partido é particularmente interessante pois pode ser fa
 
 \section{Medição do Fluxo de Água} %usar fotos das peças que eu tenho
 
+%A medição e o controle do fluxo de água são processos significativos para a gestão dos recursos hídricos, e por isso, vários métodos e ferramentas foram desenvolvidos para tratar estes processos, apresentando diferentes níveis de viabilidade conforme a utilização.
+
 A medição e monitoramento do fluxo de água são processos importantes no gerenciamento de recursos hídricos, o que levou ao desenvolvimento de diversos metodos e ferramentas para tratar desses processos, as quais apresentam diferentes graus de viabilidade de acordo com a aplicação.
 
-Para corpos aquaticos como rios e riachos, temos métodos como a medição por molinete, o método do flutuador, a técnica de vertedores e sensores ultrassônicos de nível, que permitem estimar a vazão com base na velocidade da corrente e na area da seção transversal do curso d’água \cite{COSTA_Camargo_Tolentino_Akutsu_Periotto_Tanaka:2023}.
+Para superfícies aquáticas como os rios e riachos, tem-se métodos como o medidor de molinete, o método do flutuador, a técnica dos vertedores e sensores ultrassônicos de nível, que estimam a vazão com base na velocidade da corrente e na área da seção transversal do curso d'água \cite{COSTA_Camargo_Tolentino_Akutsu_Periotto_Tanaka:2023}.
 
-Já em ambientes controlados onde os liquidos são transportados por meio de encanamentos, como em sistemas de abastecimento domestico, comercial e industrial, outros metodos podem ser aplicados, tais como hidrômetros mecânicos, sensores eletromagnéticos e sensores ultrassônicos \cite{flow:2016}.
-
-
-
-%Em aplicações residenciais e prediais, os hidrômetros são os dispositivos mais comuns, projetados para registrar o consumo acumulado ao longo do tempo com precisão e confiabilidade. 
+Já em ambientes controlados nos quais os líquidos são transportados por encanamentos, como em sistemas de abastecimento e esgoto, podem ser aplicados outros métodos, como hidrômetros mecânicos, sensores eletromagnéticos, ultrassônicos \cite{flow:2016}.
 
 \subsection{YF-S201}
 
@@ -99,9 +104,6 @@ O sensor de vazão de água YF-S201, ilustrado na Figura~\ref{fig:YF-S201} é co
 
 
 %\section{Psicologia da Conservação} %%talvez
-
-%A Psicologia da Conservação estuda como fatores psicológicos influenciam o comportamento humano em relação ao uso sustentável de recursos naturais. Nesse contexto, duas abordagens centrais são o eco-feedback e a teoria do nudge. 
-
-%O eco-feedback (ou feedback ecológico) refere-se à prática de fornecer aos indivíduos informações claras, contínuas e, preferencialmente, em tempo real ou quase real sobre seu consumo de recursos, como energia elétrica, água ou gás. Esse retorno imediato permite que as pessoas percebam as consequências de suas ações, aumentando a conscientização e facilitando a autorregulação do comportamento. Estudos demonstram que o eco-feedback pode levar a reduções significativas no consumo, especialmente quando as informações são apresentadas de forma compreensível, contextualizada e associada a metas ou comparações sociais. 
-
-%Complementarmente, a teoria do nudge (termo cunhado por Thaler e Sunstein, 2008) propõe que pequenas alterações no design do ambiente de escolha — sem restringir opções ou alterar incentivos econômicos — podem orientar as pessoas a tomar decisões mais benéficas, como o uso consciente de energia. Um nudge eficaz é sutil, previsível e respeita a liberdade de escolha. No âmbito da conservação, o eco-feedback atua como um nudge cognitivo, destacando informações relevantes que, de outra forma, permaneceriam invisíveis no cotidiano. 
+%A Psicologia da Conservação
+%O eco-feedback (ou feedback ecológico) 
+%Complementarmente, a teoria do nudge (termo cunhado por Thaler e Sunstein, 2008)

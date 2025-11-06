@@ -153,7 +153,6 @@ A caixa do circuito deve ser instalada o mais alto possivel, já a caixa do LCD 
 \section{Desenvolvimento do software}
 
 Com o hardware consolidado, o desenvolvimento do software, além da funcionalidade, deve priorizar a experiencia do usuario, gerando uma interface amigavel e intuitiva. A implementação tecnica foi executada na IDE Visual Studio Code, atraves do plugin PlataformIO, e ocorreu em duas frentes, firmware e o aplicativo web.
-%O firmware foi escrito em C++, lida com a leitura de dados, do lcd, da conexão com a internet e do gerenciamento de um simples sistema de arquivos implementado dentro do microcontrolador com ajuda da livraria LittleFS. Graças a esse sistema de arquivo, a base de dados dos banhos é organizada na forma de um arquivo csv, e o  aplicativo web pode ser construido de maneira tradicional, com HTML, CSS e JavaScript.
 
 \subsection{Firmware}
 
@@ -183,10 +182,6 @@ O firmware foi escrito em C++, é responsavel por toda a lógica de detecção d
  \end{figure}
 
 A interface web foi implementada com tecnologias web padrão, HTML, CSS e JavaScript, de forma semelhante a um site tradicional. O uso de JavaScript permite o processamento dos dados recebidos diretamente no navegador, aliviando a carga computacional do microcontrolador, que já é responsável pela análise contínua dos sensores.
-
-%A interface web foi desenvolvida utilizando tecnologias web padrão, HTML, CSS e JavaScript, seguindo uma abordagem semelhante à de um site convencional.
-
-%O software desenvolvido gera uma interface web, acessivel por meio do navegador de um celular ou computador. Essa interface é o método mais completo de se interagir com o sistema, ela é dividida em duas partes principais, o painel, ilustrado na Figura~\ref{fig:WebUi_1}, e o historico, ilustrado na Figura~\ref{fig:WebUi_2} e Figura~\ref{fig:WebUi_3}.
 
  No painel, são mostradas as informações em tempo real sobre o consumo de água e energia elétrica do banho, assim como os custos do banho anterior.
  No final da pagina temos dois botões, o da esquerda força a atualização da pagina, e o da direita abra a aba de configuração.
@@ -247,7 +242,6 @@ Dessa forma, além das ferramentas fornecidas pela interface web, o usuario pode
 Embora a interface web ofereça flexibilidade no acesso e pós processamento de dados, o feedback em tempo real exigiria que o usuário consultasse um dispositivo móvel, como um smartphone, durante o banho, o que além de ser pouco prático, é muitas vezes inviável, especialmente considerando que a maioria desses dispositivos não é a prova d'água. Dessa forma, optou-se pelo uso de uma LCD com  interface simplificada como forma de fornecer feedback em tempo real, diretamente no ambiente do banheiro, para o usuario.
 
 A interface LCD é composta por duas telas: a primeira fornece o consumo em tempo real durante o banho (Figura~\ref{fig:LCD_telaBanho}), a segunda mostra um relatório pós banho, comparando os custos do banho atual com a média dos custos dos banhos anteriores (Figura~\ref{fig:LCD_telaPósBanho}).
-%A interface LCD é composta por duas telas distintas. A primeira exibe, em tempo real durante o banho, as informações de consumo de água, energia e custo acumulado (Figura~XX). A segunda tela apresenta, ao final do banho, um relatório comparativo que mostra o custo do banho atual em relação à média dos banhos anteriores (Figura~XXX), oferecendo ao usuário um feedback imediato e contextualizado sobre seu desempenho.
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -269,8 +263,6 @@ A interface LCD é composta por duas telas: a primeira fornece o consumo em temp
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Relatório pós banho}
  \end{figure}
 
-%Embora a interface web ofereça flexibilidade no acesso aos dados, o feedback em tempo real exigiria que o usuário consultasse um dispositivo móvel — como um smartphone — durante o banho, o que é pouco prático e muitas vezes inviável, especialmente considerando que a maioria desses dispositivos não é à prova d’água. Diante dessa limitação, optou-se pela integração de um display LCD com interface simplificada, capaz de fornecer ao usuário informações imediatas sobre o consumo diretamente no ambiente do banheiro, de forma segura e acessível.
-
 \chapter{Resultados e discussões}
 %Resultados PRATICOS
 Os primeiros resultados obtidos por meio da montagem e operação do projeto são apresentados nessa seção. Aqui se tem por objetivo a visualização e validação dos dados coletados, assim como os resultados dos mesmos.
@@ -282,8 +274,6 @@ Apresenta-se a seguir o passo a passo do uso de ferramentas para validação das
 \subsection{Ferramentas utilizadas}
 
 Para medir a vazão real do chuveiro, foram usados um balde, uma balança digital (ilustrados na Figura~\ref{fig:balança&balde}) e um cronômetro. O método consistiu em coletar água do chuveiro no balde durante um intervalo de tempo cronometrado, e a massa de água coletada pelo balde foi registrada pela balança.
-
-%O procedimento consistiu em coletar a água do chuveiro no balde durante um intervalo de tempo previamente medido com o cronômetro, enquanto a massa da água coletada foi registrada pela balança.
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -309,7 +299,6 @@ Alicate amperimetro na Figura~\ref{fig:amperimetro}.
 
 A partir dos dados coletados de diversos testes realizados, duas tabelas foram organizadas: a Tabela~\ref{tab:tabCorrente}, com as medições de corrente elétrica, e a Tabela~\ref{tab:tabVazao}, com os valores de vazão de água. Em ambas, a primeira coluna contém os valores registradas pelo sistema desenvolvido neste trabalho; a segunda coluna tem os valores de referência medidos manualmente com as ferramentas de medição; a terceira coluna apresenta o erro absoluto entre as duas leituras, utilizado para avaliar a precisão do sistema.
 
-%A partir dos dados obtidos nos diversos testes realizados, foram organizadas duas tabelas: a Tabela XX, com as medições de corrente elétrica, e a Tabela XXX, com os valores de vazão de água. Em ambas, a primeira coluna apresenta as leituras registradas pelo sistema desenvolvido neste trabalho; a segunda coluna, os valores de referência obtidos por meio de instrumentos de medição calibrados (medição manual); e a terceira coluna, o erro absoluto entre as duas leituras, utilizado para avaliar a precisão do protótipo.
 
 \begin{table}[!htb]
  % Luiz - O texto do caption da tabela/quadro deve ser do tamanho da tabela, então utilize a linha a seguir para conseguir esse efeito
@@ -379,7 +368,6 @@ Os valores de vazão calculados na Tabela~\ref{tab:calculoVazao} foram utilizado
 É notavel, pelos valores na terceira coluna da Tabela~\ref{tab:tabVazao}, que a performance do sensor de vazão degrada significativamente em condições de baixo fluxo de água.
 
 Por fim, o desempenho geral do sistema mostrou-se aceitável para a aplicação proposta. O sensor de corrente demonstrou consistência ao longo das medições, com desvios máximos de 2,53\% em relação ao valor esperado. Já o medidor de vazão se demonstrou incapaz de obter leituras de vazão baixas sem um erro significativo, mas, deve se considerar que no chuveiro utilizado, uma vazão confortavel para o banho é acima de 2,5 L/min , o que está dentro da faixa de operação com erro aceitavel. Assim, dentro da faixa de uso típico que se espera do sistema, o mesmo cumpre sua função satisfatóriamente.
-%Por fim, o desempenho geral do sistema mostrou-se aceitável para a aplicação proposta. O sensor de corrente demonstrou consistência ao longo das medições, com desvios máximos de 2,53% em relação ao valor esperado. Já o medidor de vazão, embora impreciso em faixas muito baixas, opera com erro tolerável acima de 2,5 L/min — valor que corresponde à vazão mínima considerada confortável para banho no chuveiro utilizado. Assim, dentro da faixa de uso típico, o sistema cumpre adequadamente sua função.
 
 \section{Análise dos Dados Coletados pelo Sistema}
 
