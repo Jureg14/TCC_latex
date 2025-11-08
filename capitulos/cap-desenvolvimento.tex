@@ -5,7 +5,7 @@ Esta seção descreve o processo de desenvolvimento, construção e validação 
 
 \section{Delineação de requerimentos}
 
-Nesta etapa foram definidos os objetivos a serem alcançados e as estratégias para executá-los, permitindo, dessa forma uma visão mais clara do problema e, consequentemente, da solução do mesmo.
+Nesta etapa foram definidos os objetivos a serem alcançados e as estratégias para executá-los, permitindo, dessa forma, uma visão mais clara do problema e, consequentemente, da solução do mesmo.
 
 Com base em uma inspeção visual e experimental dos sistemas necessarios para a operação de um chuveiro elétrico, foram determinados e organizados os requerimentos no Quadro~\ref{quad:leituras_requeridas}
 
@@ -22,12 +22,12 @@ Com base em uma inspeção visual e experimental dos sistemas necessarios para a
  Leitura da potência consumida \\ \cline{1-1}
 \end{tabular}
 \fonte{Autoria própria (2025)}%% Fonte
-\addcontentsline{loge}{tabframed}{\protect\numberline{\thetabframed}Leituras requeridas}
+%\addcontentsline{loge}{tabframed}{\protect\numberline{\thetabframed}Leituras requeridas}
 \end{tabframed}
 
  Considerando que a tensão da rede elétrica residencial é geralmente estável e que o chuveiro elétrico comporta-se como uma carga puramente resistiva, foi decidido tratar a tensão elétrica como uma constante no cálculo da potência. 
  
- Dessa forma o sensor de tensão foi substituido por uma chave seletora com a qual o usuario deve determinar a tensão nominal do chuveiro (por exemplo, 127 V ou 220 V). Isso permite simplificar significativamente a arquitetura do sistema e reduzir seus custos de implementação, mas ainda assim, mantém a precisão das medições dentro de limites aceitáveis para a aplicação proposta.
+ Dessa forma o sensor de tensão foi substituído por uma chave seletora com a qual o usuário deve determinar a tensão nominal do chuveiro (por exemplo, 127 V ou 220 V). Isso permite simplificar significativamente a arquitetura do sistema e reduzir seus custos de implementação, mas ainda assim, mantém a precisão das medições dentro de limites aceitáveis para a aplicação proposta.
 
  Assim, podemos organizar no Quadro~\ref{quad:funcionalidades_requeridas} a lista completa de requerimentos.
 
@@ -50,10 +50,10 @@ Com base em uma inspeção visual e experimental dos sistemas necessarios para a
  Interface clara e funcional do WebApp \\ \cline{1-1}
 \end{tabular}
 \fonte{Autoria própria (2025)}%% Fonte
-\addcontentsline{loge}{tabframed}{\protect\numberline{\thetabframed}Requerimentos}
+%\addcontentsline{loge}{tabframed}{\protect\numberline{\thetabframed}Requerimentos}
 \end{tabframed}
 
-A partir desse levantamento de dados, foi possivel determinar o escopo do software e hardware para o projeto, os quais são explicados de maneira mais rica nos capitulos a seguir.
+A partir desse levantamento de dados, foi possível determinar o escopo do software e hardware para o projeto, os quais são explicados de maneira mais rica nos capítulos a seguir.
 
 
 \section{Materiais utilizados}
@@ -87,7 +87,7 @@ Para a montagem do projeto foram usados componentes de facil acesso, os quais es
  \fonte{Autoria própria (2025)}
  \end{table}
 
-O  ESP32 Espressif foi escolhido pois atende as necessidades do projeto, atendendo as requisitos como numero de pinos I/O, quantidade de armazenamento e comunicação sem fio WiFi. Alem disso pode ser obtido a um baixo custo, e apresenta uma boa documentação.
+O  ESP32 Espressif foi escolhido pois atende às necessidades do projeto, atendendo aos requisitos como número de pinos I/O, quantidade de armazenamento e comunicação sem fio WiFi. Além disso, pode ser obtido a um baixo custo e apresenta uma boa documentação.
 
 O LCD em uso é o ST7735, é usado em conjunto com um botão para servir de interface para o usuário, foi escolhido porque, mesmo dado seu baixo custo, consiste em uma tela pequena, de alta resolução e colorida, o que resulta em boa plataforma para se desenvolver uma boa experiência de uso para o usuário.
 
@@ -95,20 +95,20 @@ O sensor de corrente é o transformador SCT-013 de 100 A, ele apresenta um bom c
 O modelo escolhido possui duas particularidades, as quais devem ser levadas em conta durante o design:
 \begin{itemize}
     \item A primeira é a presença um conector p3 macho, o que levou a inclusão de um conector p3 femea no circuito;
-    \item A segunda é que diferente das versões que geram uma tensão alternada proporcional a corrente sendo medida, que essa variação do sensor gera uma corrente alternada, essa corrente precisa processada por meio de um circuito de condicionamento, o qual atua transformando a corrente alternada em uma tensão que pode ser lida e processada pelo microcontrolador.
+    \item A segunda é que, diferente das versões que geram uma tensão alternada proporcional à corrente sendo medida, que essa variação do sensor gera uma corrente alternada, essa corrente precisa ser processada por meio de um circuito de condicionamento, o qual atua transformando a corrente alternada em uma tensão que pode ser lida e processada pelo microcontrolador.
 \end{itemize}
 %O sensor YF-S201 é acessível e, por meio de experimentos, demonstrou operar adequadamente com 3,3 V
-O sensor de vazão de água YF-S201, é acessivel a um preço baixo, e, por meio de experimentos, demonstrou operar adequadamente com 3,3 V, o que é mais baixo que sua tensão nominal de operação de 5 V. Isso é relevante pois simplifica seu uso com o microcontrolador escolhido, o ESP32, cujos pinos suportam somente tensões até 3.6 V.
+O sensor de vazão de água YF-S201 é acessível a um preço baixo e, por meio de experimentos, demonstrou operar adequadamente com 3,3 V, o que é mais baixo que sua tensão nominal de operação de 5 V. Isso é relevante pois simplifica seu uso com o microcontrolador escolhido, o ESP32, cujos pinos suportam somente tensões até 3,6 V.
 
-Os conectores foram usados por conveniencia, mas todos os sensores podem ser soldados diretamente na placa, o que pode vir a gerar menos problemas ao longo do tempo devido a natureza umida do ambiente onde o sistema é usado.
+Os conectores foram usados por conveniência, mas todos os sensores podem ser soldados diretamente na placa, o que pode vir a gerar menos problemas ao longo do tempo devido à natureza úmida do ambiente onde o sistema é usado.
 
 \section{Montagem}
 %o que foi montado, porque e como.
-Antes de se iniciar a montagem em si, foi elaborado o diagrama elétrico dos componentes no software KiCad. Esse diagrama esta ilustrado na figura~\ref{fig:kicad_circuit}.
+Antes de se iniciar a montagem em si, foi elaborado o diagrama elétrico dos componentes no software KiCad. Esse diagrama está ilustrado na figura~\ref{fig:kicad_circuit}.
 
 \begin{figure}[!htb]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
-     \caption{Esquematica}%% Legenda
+     \caption{Esquemática}%% Legenda
      \label{fig:kicad_circuit}%% Rótulo
      \includegraphics[scale=0.5]{figuras/kicad_circuit.png}%% Dimensões e localização
      \fonte{Autoria própria (2025)}%% Fonte
@@ -137,7 +137,7 @@ Com devido cuidado, o transformador de corrente pode ser simplesmente preso no f
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}transformador de corrente posicionado}
  \end{figure}
 
-A caixa para o circuito elétrico, para o LCD, e o botão podem ser fixados na parededo banheiro proximo ao chuveiro como na Figura~\ref{fig:Sistema_montado}. 
+A caixa para o circuito elétrico, para o LCD e o botão podem ser fixados na parede do banheiro próximo ao chuveiro como na Figura~\ref{fig:Sistema_montado}. 
 
 \begin{figure}[!htb]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -148,15 +148,15 @@ A caixa para o circuito elétrico, para o LCD, e o botão podem ser fixados na p
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Sistema montado e implementado}
  \end{figure}
 
-A caixa do circuito deve ser instalada o mais alto possivel, já a caixa do LCD e o botão devem ser fixados em um relativamente ponto alto, de forma a minimizar o contato com a água, mas não tão alto a ponto de serem inacessiveis pelo usuario.
+A caixa do circuito deve ser instalada o mais alto possível, já a caixa do LCD e o botão devem ser fixados em um ponto relativamente alto, de forma a minimizar o contato com a água, mas não tão alto a ponto de serem inacessíveis pelo usuário.
 
 \section{Desenvolvimento do software}
 
-Com o hardware consolidado, o desenvolvimento do software, além da funcionalidade, deve priorizar a experiencia do usuario, gerando uma interface amigavel e intuitiva. A implementação tecnica foi executada na IDE Visual Studio Code, atraves do plugin PlataformIO, e ocorreu em duas frentes, firmware e o aplicativo web.
+Com o hardware consolidado, o desenvolvimento do software, além da funcionalidade, deve priorizar a experiência do usuário, gerando uma interface amigável e intuitiva. A implementação técnica foi executada na IDE Visual Studio Code, através do plugin PlatformIO, e ocorreu em duas frentes, firmware e o aplicativo web.
 
 \subsection{Firmware}
 
-O firmware foi escrito em C++, é responsavel por toda a lógica de detecção de banhos, leitura, gerenciamento e persistência dos dados. Seu funcionamento é ilustrado na Figura~\ref{fig:firmware_flowchart}.
+O firmware foi escrito em C++, é responsável por toda a lógica de detecção de banhos, leitura, gerenciamento e persistência dos dados. Seu funcionamento é ilustrado na Figura~\ref{fig:firmware_flowchart}.
 
 \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -167,10 +167,17 @@ O firmware foi escrito em C++, é responsavel por toda a lógica de detecção d
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Fluxograma do Firmware}
  \end{figure}
 \FloatBarrier
+%A arquitetura de software, desenvolvida para o microcontrolador ESP32, organiza-se em um loop principal que realiza a aquisição contínua de dados provenientes de sensores de corrente elétrica e vazão de água. A lógica de detecção de eventos utiliza limiares configuráveis para identificar o início e término de sessões de banho, empregando uma máquina de estados finitos que distingue entre estados ativos e inativos. Durante a operação ativa, o sistema realiza integração temporal dos sinais medidos para quantificar o consumo total de água em litros e energia em quilowatts-hora, aplicando fatores de conversão monetária para apresentação em tempo real através de interface LCD. Os dados históricos são persistidos em sistema de arquivos LittleFS no formato CSV, permitindo análises estatísticas e cálculo de médias de consumo. O sistema incorpora ainda funcionalidades de conectividade WiFi para acesso remoto via servidor web assíncrono, além de mecanismos de reset automático programável e recuperação de configurações através de memória não-volátil, garantindo operação autônoma e confiável.
+
+O sistema continuamente monitora os sensores de vazão e corrente, e, ao detectar um banho, quantifica os sinais recebidos dos sensores em litros de água e em quilowatts-hora de energia, calculando a conversão monetária para apresentação em tempo real através da interface LCD e pelo Web App. Informações importantes como configurações e os dados históricos dos banhos são armazenadas na memória flash interna do microcontrolador, garantindo persistência mesmo em caso de reinicializações ou interrupções de energia.
+
+Um sistema de reiniciamento automático foi implementado para assegurar uma operação autônoma e confiável.
+
+
 \subsection{Web App}
- A solução web app foi escolhido porque, ao contrário de um aplicativo instalado, ele pode ser acessado em qualquer dispositivo com suporte a um navegador moderno, sem a necessidade de instalar softwares adicionais. Isso torna o acesso mais fácil para os usuários e simplifica o processo de desenvolvimento.
+ A solução web app foi escolhida porque, ao contrário de um aplicativo instalado, ela pode ser acessada em qualquer dispositivo com suporte a um navegador moderno, sem a necessidade de instalar softwares adicionais. Isso torna o acesso mais fácil para os usuários e simplifica o processo de desenvolvimento.
  
- Foi desenvolvido como metodo primario de interagir com o projeto, fornecendo tanto um feedback em tempo real, quanto o acesso aos dados coletados ao longo do tempo. A Figura~\ref{fig:Web_Mockup} ilustra o protótipo de interface que orientou o processo de desenvolvimento.
+ Foi desenvolvido como método primário de interagir com o projeto, fornecendo tanto um feedback em tempo real quanto o acesso aos dados coletados ao longo do tempo. A Figura~\ref{fig:Web_Mockup} ilustra o protótipo de interface que orientou o processo de desenvolvimento.
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -184,7 +191,7 @@ O firmware foi escrito em C++, é responsavel por toda a lógica de detecção d
 A interface web foi implementada com tecnologias web padrão, HTML, CSS e JavaScript, de forma semelhante a um site tradicional. O uso de JavaScript permite o processamento dos dados recebidos diretamente no navegador, aliviando a carga computacional do microcontrolador, que já é responsável pela análise contínua dos sensores.
 
  No painel, são mostradas as informações em tempo real sobre o consumo de água e energia elétrica do banho, assim como os custos do banho anterior.
- No final da pagina temos dois botões, o da esquerda força a atualização da pagina, e o da direita abra a aba de configuração.
+ No final da página temos dois botões, o da esquerda força a atualização da página, e o da direita abre a aba de configuração.
 
 \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -195,7 +202,7 @@ A interface web foi implementada com tecnologias web padrão, HTML, CSS e JavaSc
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Painel}
  \end{figure}
 
-Na aba de configuração, o usuario pode definir variaveis como o custo de energia, custo da água, e o reset automatico do sistema, mostrado na figura~\ref{fig:WebUi_cfg}.
+Na aba de configuração, o usuário pode definir variáveis como o custo de energia, custo da água e o reset automático do sistema, mostrado na figura~\ref{fig:WebUi_cfg}.
 
 \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -206,12 +213,12 @@ Na aba de configuração, o usuario pode definir variaveis como o custo de energ
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Página configuração}
  \end{figure}
 
- No historico, ilustrado pelas Figura~\ref{fig:WebUi_2} e Figura~\ref{fig:WebUi_3}, temos tres graficos de barras, ilustrando os custos dos banhos. 
+ No histórico, ilustrado pelas Figuras~\ref{fig:WebUi_2} e Figura~\ref{fig:WebUi_3}, temos três gráficos de barras, ilustrando os custos dos banhos. 
  Em ordem, de cima para baixo:
  \begin{itemize}
-     \item No topo temos o grafico com os custos dos banhos do dia.
-     \item No meio temos o grafico com os custos de todos os banhos das ultimas duas semanas.
-     \item O terceiro e ultimo grafico mostra o custo medio de um banho nos ultimos meses.
+     \item No topo temos o gráfico com os custos dos banhos do dia.
+     \item No meio temos o gráfico com os custos de todos os banhos das últimas duas semanas.
+     \item O terceiro e último gráfico mostra o custo médio de um banho nos últimos meses.
  \end{itemize}
 
  \begin{figure}[htbp]%% Ambiente figure
@@ -223,7 +230,7 @@ Na aba de configuração, o usuario pode definir variaveis como o custo de energ
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Historico parte superior}
  \end{figure}
 
-No final da pagina temos uma aba que mostra, de maneira menos ilustrada, porem mais detalhada, uma tabela com todos os banhos tomados que estão guardados na memoria do dispositivo. Aqui essa tabela pode sei baixada na forma de um arquivo csv.
+No final da página temos uma aba que mostra, de maneira menos ilustrada, porém mais detalhada, uma tabela com todos os banhos tomados que estão guardados na memória do dispositivo. Aqui essa tabela pode sei baixada na forma de um arquivo csv.
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -234,14 +241,14 @@ No final da pagina temos uma aba que mostra, de maneira menos ilustrada, porem m
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Histórico parte inferior}
  \end{figure}
 \FloatBarrier
-Dessa forma, além das ferramentas fornecidas pela interface web, o usuario pode, através do arquivo csv fornecido, usar outras ferramentas para melhor analizar seus habitos e mais facilmente identificar padrões em seu consumo.
+Dessa forma, além das ferramentas fornecidas pela interface web, o usuário pode, através do arquivo csv fornecido, usar outras ferramentas para melhor analisar seus hábitos e mais facilmente identificar padrões em seu consumo.
 
 %falar do LCD
 \subsection{Interface LCD}
 
-Embora a interface web ofereça flexibilidade no acesso e pós processamento de dados, o feedback em tempo real exigiria que o usuário consultasse um dispositivo móvel, como um smartphone, durante o banho, o que além de ser pouco prático, é muitas vezes inviável, especialmente considerando que a maioria desses dispositivos não é a prova d'água. Dessa forma, optou-se pelo uso de uma LCD com  interface simplificada como forma de fornecer feedback em tempo real, diretamente no ambiente do banheiro, para o usuario.
+Embora a interface web ofereça flexibilidade no acesso e pós-processamento de dados, o feedback em tempo real exigiria que o usuário consultasse um dispositivo móvel, como um smartphone, durante o banho, o que, além de ser pouco prático, é muitas vezes inviável, especialmente considerando que a maioria desses dispositivos não é a prova d'água. Dessa forma, optou-se pelo uso de uma LCD com  interface simplificada como forma de fornecer feedback em tempo real, diretamente no ambiente do banheiro, para o usuário.
 
-A interface LCD é composta por duas telas: a primeira fornece o consumo em tempo real durante o banho (Figura~\ref{fig:LCD_telaBanho}), a segunda mostra um relatório pós banho, comparando os custos do banho atual com a média dos custos dos banhos anteriores (Figura~\ref{fig:LCD_telaPósBanho}).
+A interface LCD é composta por duas telas: a primeira fornece o consumo em tempo real durante o banho (Figura~\ref{fig:LCD_telaBanho}), a segunda mostra um relatório pós-banho, comparando os custos do banho atual com a média dos custos dos banhos anteriores (Figura~\ref{fig:LCD_telaPósBanho}).
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -273,18 +280,18 @@ Apresenta-se a seguir o passo a passo do uso de ferramentas para validação das
 
 \subsection{Ferramentas utilizadas}
 
-Para medir a vazão real do chuveiro, foram usados um balde, uma balança digital (ilustrados na Figura~\ref{fig:balança&balde}) e um cronômetro. O método consistiu em coletar água do chuveiro no balde durante um intervalo de tempo cronometrado, e a massa de água coletada pelo balde foi registrada pela balança.
+Para medir a vazão real do chuveiro, foram usados um balde, uma balança digital (ilustrados na Figura~\ref{fig:balança_e_balde}) e um cronômetro. O método consistiu em coletar água do chuveiro no balde durante um intervalo de tempo cronometrado, e a massa de água coletada pelo balde foi registrada pela balança.
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
      \caption{Balança digital e balde}%% Legenda
-     \label{fig:balança&balde}%% Rótulo
-     \includegraphics[scale=0.1]{figuras/balança&balde.jpg}%% Dimensões e localização
+     \label{fig:balança_e_balde}%% Rótulo
+     \includegraphics[scale=0.1]{figuras/balança_e_balde.jpg}%% Dimensões e localização
      \fonte{Autoria própria (2025)}%% Fonte
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Balança digital e balde}
  \end{figure}
 
-Alicate amperimetro na Figura~\ref{fig:amperimetro}.
+Alicate amperímetro na Figura~\ref{fig:amperimetro}.
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
@@ -297,8 +304,19 @@ Alicate amperimetro na Figura~\ref{fig:amperimetro}.
 
 \subsection{Validação dos valores medidos}
 
-A partir dos dados coletados de diversos testes realizados, duas tabelas foram organizadas: a Tabela~\ref{tab:tabCorrente}, com as medições de corrente elétrica, e a Tabela~\ref{tab:tabVazao}, com os valores de vazão de água. Em ambas, a primeira coluna contém os valores registradas pelo sistema desenvolvido neste trabalho; a segunda coluna tem os valores de referência medidos manualmente com as ferramentas de medição; a terceira coluna apresenta o erro absoluto entre as duas leituras, utilizado para avaliar a precisão do sistema.
+A partir dos dados coletados de diversos testes realizados, duas tabelas foram organizadas: a Tabela~\ref{tab:tabCorrente}, com as medições de corrente elétrica, e a Tabela~\ref{tab:tabVazao}, com os valores de vazão de água. Em ambas, a primeira coluna contém os valores registrados pelo sistema desenvolvido neste trabalho; a segunda coluna tem os valores de referência medidos manualmente com as ferramentas de medição; a terceira coluna apresenta o erro percentual entre as duas leituras, calculado pela Equação~\ref{eq:erro_percentual}, utilizado para avaliar a precisão do sistema.
 
+\begin{equation}
+\label{eq:erro_percentual}
+E_{\%} = \left| \frac{V_m - V_r}{V_r} \right| \times 100
+\end{equation}
+
+\noindent onde:
+\begin{itemize}
+    \item $E_{\%}$ é o erro percentual (\%);
+    \item $V_m$ é o valor medido;
+    \item $V_r$ é o valor de referência.
+\end{itemize}
 
 \begin{table}[!htb]
  % Luiz - O texto do caption da tabela/quadro deve ser do tamanho da tabela, então utilize a linha a seguir para conseguir esse efeito
@@ -307,7 +325,7 @@ A partir dos dados coletados de diversos testes realizados, duas tabelas foram o
  \caption{\label{tab:tabCorrente}Leitura de corrente}
  \begin{tabular}{p{6cm} cccc}
  	          \hline
-            \multicolumn{1}{c}{leituras registradas (A)}     & Valores de referência (A) & Erro absoluto (\%) \\ 
+            \multicolumn{1}{c}{leituras registradas (A)}     & Valores de referência (A) & erro percentual (\%) \\ 
             \hline
             40,1	                                         & 40,2	                     & 0,25    \\
             24,4	                                         & 24,3	                     & 0,41    \\ 
@@ -318,10 +336,22 @@ A partir dos dados coletados de diversos testes realizados, duas tabelas foram o
  \end{tabular}
  \fonte{Autoria própria (2025)}
  \end{table}
-
+\FloatBarrier
 Como se pode ver, os valores de corrente registrados pelo sistema são bem próximos dos valores medidos, com o maior erro sendo menor que 3\%. 
 
- Antes de serem tabelados, os valores de vazão foram calculados conforme demonstrado na Tabela~\ref{tab:calculoVazao}. Nota-se que foi consideranda a densidade da água aproximadamente igual a 1 g/mL, e a massa de água coletada foi diretamente convertida em volume, de modo que 1 grama corresponde a 1 mililitro.
+ Antes de serem tabelados, os valores de vazão foram calculados conforme demonstrado na Tabela~\ref{tab:calculoVazao} por meio da Equação~\ref{eq:vazao}. Nota-se que, para calcular a vazão com a Equação~\ref{eq:vazao}, foi considerada a densidade da água aproximadamente igual a 1 g/mL, e a massa de água coletada foi diretamente convertida em volume, de modo que 1 grama corresponde a 1 mililitro.
+
+\begin{equation}
+\label{eq:vazao}
+Q =  \frac{V_l}{t}  \times 60
+\end{equation}
+
+\noindent onde:
+\begin{itemize}
+    \item $Q$ é a vazão (L/min);
+    \item $V_l$ é o volume de água medido;
+    \item $t$ é o intervalo de tempo no qual o volume de água foi coletado.
+\end{itemize}
 
  \begin{table}[!htb]
  % Luiz - O texto do caption da tabela/quadro deve ser do tamanho da tabela, então utilize a linha a seguir para conseguir esse efeito
@@ -338,6 +368,7 @@ Como se pode ver, os valores de corrente registrados pelo sistema são bem próx
             1,957	                                       & 45,22	              & 2,59    \\
             1,591	                                       & 53,37	              & 1,79    \\
             1,307	                                       & 72,44	              & 1,08    \\
+            1,763	                                       & 46,06	              & 2,29    \\
             \hline
  \end{tabular}
  \fonte{Autoria própria (2025)}
@@ -352,26 +383,32 @@ Os valores de vazão calculados na Tabela~\ref{tab:calculoVazao} foram utilizado
  \caption{\label{tab:tabVazao}Leitura de vazão}
  \begin{tabular}{p{6cm} cccc}
  	          \hline
-            \multicolumn{1}{c}{leituras registradas (L/min)}     & Valores de referência (L/min) & Erro absoluto (\%) \\ 
+            \multicolumn{1}{c}{leituras registradas (L/min)}     & Valores de referência (L/min) & erro percentual (\%) \\ 
             \hline
             2,6	                                                 & 2,59	                         & 0,38    \\
             3,4	                                                 & 3,37	                         & 0,89    \\
             3,0	                                                 & 2,95	                         & 1,69    \\
+            2,1	                                                 & 2,29	                         & 8,58    \\
             1,9	                                                 & 2,18	                         & 12,84   \\
             1,2	                                                 & 1,79	                         & 32,96   \\ 
             0,5	                                                 & 1,08	                         & 53,70   \\
+            
             \hline
  \end{tabular}
  \fonte{Autoria própria (2025)}
  \end{table}
+\FloatBarrier
 
-É notavel, pelos valores na terceira coluna da Tabela~\ref{tab:tabVazao}, que a performance do sensor de vazão degrada significativamente em condições de baixo fluxo de água.
+É notável, pelos valores da terceira coluna da Tabela~\ref{tab:tabVazao}, que o desempenho do sensor de vazão degrada significativamente em condições de baixo fluxo de água.
 
-Por fim, o desempenho geral do sistema mostrou-se aceitável para a aplicação proposta. O sensor de corrente demonstrou consistência ao longo das medições, com desvios máximos de 2,53\% em relação ao valor esperado. Já o medidor de vazão se demonstrou incapaz de obter leituras de vazão baixas sem um erro significativo, mas, deve se considerar que no chuveiro utilizado, uma vazão confortavel para o banho é acima de 2,5 L/min , o que está dentro da faixa de operação com erro aceitavel. Assim, dentro da faixa de uso típico que se espera do sistema, o mesmo cumpre sua função satisfatóriamente.
+Por fim, o desempenho geral do sistema mostrou-se aceitável para a aplicação proposta. 
+
+O sensor de corrente SCT-013 demonstrou consistência ao longo das medições, com desvios máximos de 2,53\% em relação ao valor esperado. 
+Já o medidor de vazão YF-S201 demonstrou incapaz de obter leituras inferiores a 2 L/min sem um erro significativo. Entretando, de acordo com o \textit{Brazil Water Efficiency Report} \cite{clasp2021water}, a maior parte dos chuveiros elétricos comercializados no país operam com vazão entre 3 e 6 L/min, ou seja, o erro do sensor não se apresenta de maneira significativa dentro da faixa de operação esperada do sistema, não comprometendo a aplicabilidade do mesmo.
 
 \section{Análise dos Dados Coletados pelo Sistema}
 
-O sistema foi monitorado por duas semanas, como ilustrada pelo grafico na Figura~\ref{fig:WebPrimeirasDuasSemanas}. Nos primeiros dias, eram gastos, por dia, entorno de R\$7 reais com banhos. Após o usuário se acostumar com o feedback em tempo real, houve uma tendencia de queda dos gastos, que cairam para R\$5 por dia, demonstrando a eficácia do sistema em promover a conscientização.
+O sistema foi monitorado por duas semanas, como ilustrada pelo gráfico na Figura~\ref{fig:WebPrimeirasDuasSemanas}. Nos primeiros dias, eram gastos, por dia, entorno de R\$7 reais com banhos. Após o usuário se acostumar com o feedback em tempo real, houve uma tendência de queda dos gastos, que caíram para R\$5 por dia, demonstrando a eficácia do sistema em promover a conscientização.
 
  \begin{figure}[htbp]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
