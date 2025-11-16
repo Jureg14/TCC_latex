@@ -7,7 +7,7 @@
 O trabalho teve como objetivo principal o desenvolvimento de um sistema embarcado de baixo custo para o monitoramento simultâneo do consumo de água e de energia em chuveiros elétricos. Seu propósito é fornecer ao usuário acesso transparente e em tempo real aos dados de consumo associados ao uso do chuveiro, possibilitando maior clareza sobre o impacto de seus hábitos domésticos. 
 
 
-Para atingir este objetivo, foi desenvolvido um protótipo funcional baseado no microcontrolador ESP32 , utilizando o sensor de corrente SCT-013-000 e o sensor de vazão YF-S201 para a coleta de dados. Além dos sensores, de forma a interagir com o usuário, foram desenvolvidas duas interfaces de usuário: uma local, composta por um display LCD conectado diretamente ao ESP32, e outra remota, na forma de uma aplicação \textit{web} acessível por dispositivos conectados à mesma rede. 
+Para atingir este objetivo, foi desenvolvido um protótipo funcional baseado no microcontrolador ESP32, utilizando o sensor de corrente SCT-013-000 e o sensor de vazão YF-S201 para a coleta de dados. Além dos sensores, de forma a interagir com o usuário, foram desenvolvidas duas interfaces de usuário: uma local, composta por uma tela LCD conectada diretamente ao ESP32, e outra remota, na forma de uma aplicação \textit{web} acessível por dispositivos conectados à mesma rede que o microcontrolador. 
 
 O sistema foi instalado e operado em ambiente residencial real por vários dias. Os dados coletados evidenciam sua capacidade de registrar variações diárias de consumo e de disponibilizar essas informações de forma contínua. Como ilustrado na Figura~\ref{fig:WebPrimeirasDuasSemanas}, observam-se oscilações no custo diário dos banhos, incluindo períodos de redução, o que demonstra a sensibilidade do sistema à variação no comportamento do usuário, sem, contudo, estabelecer causalidade entre o monitoramento e a apresentação dos dados e eventuais mudanças.
 
@@ -26,21 +26,18 @@ Este capítulo apresenta o cronograma das atividades a serem desenvolvidas para 
 \begin{tabular}{|p{7cm}|c|c|c|c|c|c|}
 \hline
 \multicolumn{1}{|c|}{\textbf{Atividade}} & \textbf{Jan} & \textbf{Fev} & \textbf{Mar} & \textbf{Abr} & \textbf{Mai} & \textbf{Jun} \\ \hline
-Aprimoramento do sistema & X & & & & & \\ \hline
-Calibração dos sensores & X & X & & & & \\ \hline
-Otimização do firmware & & X & X & & & \\ \hline
-Melhorias na interface \textbf{web} & & X & X & & & \\ \hline
-Testes de longa duração & & & X & X & & \\ \hline
-Coleta de dados em campo & & & X & X & X & \\ \hline
-Análise estatística dos dados & & & & X & X & \\ \hline
-Redação dos resultados & & & & X & X & \\ \hline
-Redação da conclusão & & & & & X & X \\ \hline
-Revisão bibliográfica final & & & & & X & X \\ \hline
-Formatação ABNT & & & & & & X \\ \hline
-Revisão ortográfica & & & & & & X \\ \hline
-Preparação da apresentação & & & & & & X \\ \hline
-Defesa do TCC 2 & & & & & & X \\ \hline
+Aprimoramento do sistema    & X & X &   &   &   &   \\ \hline
+Otimização do firmware      &   & X & X &   &   &   \\ \hline
+Melhorias nas interfaces    &   & X & X &   &   &   \\ \hline
+Coleta de dados em campo    &   &   & X & X &   &   \\ \hline
+Fundamentação teórica       & X & X & X & X & X &   \\ \hline
+Redação dos resultados      &   &   &   & X & X &   \\ \hline
+Redação da conclusão        &   &   &   &   & X & X \\ \hline
+Revisão bibliográfica final &   &   &   &   & X & X \\ \hline
+Revisão ortográfica         &   &   &   &   &   & X \\ \hline
+Preparação da apresentação  &   &   &   &   &   & X \\ \hline
+Defesa do TCC 2             &   &   &   &   &   & X \\ \hline
 \end{tabular}
 \fonte{Autoria própria (2025)}
-\addcontentsline{loge}{tabframed}{\protect\numberline{\thetabframed}Cronograma de atividades para TCC 2}
+%\addcontentsline{loge}{tabframed}{\protect\numberline{\thetabframed}Cronograma de atividades para TCC 2} %adiciona o quadro na lista de figuras (ERRADO)
 \end{tabframed}

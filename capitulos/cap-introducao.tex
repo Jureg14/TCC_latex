@@ -26,28 +26,27 @@ Diante desse contexto, o presente projeto foi desenvolvido de modo a  analisar  
 \subsection{Objetivo geral} %revisar?
 
 %Este trabalho tem como objetivo primário o desenvolvimento de um sistema IoT de baixo custo para o monitoramento simultâneo do consumo de água e energia em chuveiros elétricos. O sistema registra, processa e disponibiliza ao usuário, em tempo real e de forma histórica, dados quantitativos relacionados a cada evento de banho — incluindo duração, volumes consumidos, energia elétrica utilizada e respectivos custos estimados. A interface foi projetada para apresentar essas informações de maneira clara e acessível, com o intuito de oferecer maior transparência sobre o impacto individual de cada uso, sem, contudo, interferir diretamente nas decisões do usuário.
-Este trabalho tem como objetivo primário o desenvolvimento de um sistema IoT de baixo custo para monitoramento do consumo de água e energia em chuveiros elétricos, fornecendo ao usuário dados em tempo real e históricos de seus banhos.
+Este trabalho tem como objetivo primário o desenvolvimento de um sistema de Internet das Coisas (IoT, do inglês \textit{Internet of Things}) de baixo custo para monitoramento do consumo de água e energia em chuveiros elétricos, fornecendo ao usuário dados em tempo real e históricos de seus banhos.
 Dessa forma, com essas informações registradas e apresentadas de maneira clara e acessível, promover a conscientização sobre os
 custos e impactos de cada banho, possivelmente incentivando a adoção de hábitos mais sustentáveis.
 
-\subsection{Objetivos especificos}
+\subsection{Objetivos específicos}
 
 \begin{itemize}
 \item Medir e monitorar potência em sistemas de corrente alternada.
 \item Estudo e desenvolvimento de sistemas embarcados para IoT.
 \item Cálculo de custo por banho com tarifas configuráveis.
 \item Armazenamento persistente de dados e exportação de históricos.
-\item Interface \textbf{web} e LCD intuitivas para visualização de dados.
+\item Interfaces intuitivas para visualização de dados.
 \end{itemize}
 
 
 \section{Justificativa} %revisado
 
-No Brasil, o chuveiro elétrico é um dos aparelhos eletrodomésticos mais comuns nas residências, estando presente em mais de 70\% dos lares \cite{EPE:PDE2031:2022}. Sua popularidade se deve ao seu baixo custo e facilidade de instalação, que dispensa a complexa infraestrutura exigida por sistemas a gás ou solar. No entanto, esse aparelho é também um dos maiores responsáveis pelo consumo residencial de energia elétrica.
+No Brasil, o chuveiro elétrico é um dos aparelhos eletrodomésticos mais comuns nas residências, estando presente em mais de 70\% dos lares \cite{EPE:PDE2031:2022}. Sua popularidade se deve ao seu baixo custo e à facilidade de instalação, que dispensa a complexa infraestrutura exigida por sistemas a gás ou solares. No entanto, esse aparelho é também um dos maiores responsáveis pelo consumo residencial de energia elétrica \cite{EPE:PDE2031:2022}.
 
-O consumo de energia elétrica do chuveiro é o terceiro maior em uma residência típica, ficando atrás apenas do ar-condicionado e da geladeira. Em média, o chuveiro elétrico responde por cerca de 14\% do consumo total de energia elétrica doméstica \cite{EPE:PDE2031:2022}. Um banho de 15 minutos em um chuveiro de 5,5 kW, por exemplo, consome cerca de 1,375 kWh, o que, multiplicado pelo valor médio da tarifa residencial no Brasil, aproximadamente R\$ 0,78/kWh em 2025 \cite{ANEEL:RankingTarifas:2025}, representa um custo em torno de R\$ 1,07 por banho, valor que pode dobrar em regiões com bandeiras tarifárias vermelhas ou com escassez hídrica. 
+O consumo de energia elétrica do chuveiro é o terceiro maior em uma residência típica, ficando atrás apenas do ar-condicionado e da geladeira. Em média, o chuveiro elétrico responde por cerca de 14\% do consumo total de energia elétrica doméstica \cite{EPE:PDE2031:2022}. Um banho de 15 minutos em um chuveiro de 5,5 kW, por exemplo, consome cerca de 1,375 kWh, o que, multiplicado pelo valor médio da tarifa residencial no Brasil, aproximadamente R\$ 0,78/kWh em 2025 \cite{ANEEL:RankingTarifas:2025}, representa um custo em torno de R\$ 1,07 por banho, valor que pode aumentar significativamente em regiões com bandeiras tarifárias vermelhas ou com escassez hídrica. 
 
 Além do impacto causado por seu alto consumo energético, o uso do chuveiro elétrico também está diretamente ligado ao consumo de água: de acordo com \citeonline{MARZALL_NASCIMENTO:2023}, pode ser atribuído a 25,89\% da água consumida por uma residência. Um chuveiro convencional pode consumir entre 3 e 4 litros de água por minuto \cite{clasp2021water}, o que significa que um único banho de 15 minutos pode gastar até 180 litros de água. Esse volume representa uma parcela significativa do consumo diário per capita, estimado em 148,2 litros \cite{SNSA:SNIS_AE_2023}. 
 
 A partir disso, propõe-se o desenvolvimento e implementação de um sistema IoT para monitoramento e gestão do consumo de água e energia no banho, disponibilizando esses dados para o usuário por meio de uma aplicação \textit{web}. O objetivo é que, com base nessas informações, o usuário se conscientize do impacto de suas ações, sendo oferecido tanto um retorno imediato quanto relatórios históricos, permitindo o acompanhamento da evolução do consumo e identificação de padrões no mesmo.
-%Portanto, o chuveiro elétrico exerce uma dupla pressão sobre os recursos domésticos: eleva os custos com energia elétrica e contribui substancialmente para o consumo de água potável.

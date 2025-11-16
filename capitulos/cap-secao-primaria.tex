@@ -2,6 +2,16 @@
 
 Nesta seção são apresentados os pilares teóricos sobre os quais o trabalho é estruturado.
 
+\section{Sistemas Embarcados e o Microcontrolador ESP32} 
+
+Sistemas embarcados são combinações integradas de \textit{hardware} e \textit{software} projetadas para executar uma ou poucas funções específicas dentro de um sistema maior, diferentemente de computadores de propósito geral, que operam em ambientes versáteis e multifuncionais. São amplamente empregados em aplicações cotidianas, como eletrodomésticos, automóveis e dispositivos médicos, onde requisitos como confiabilidade, baixo custo e consumo energético reduzido são prioritários \cite[p.~1]{BARR:2006}. 
+%  \textit{web} e LCD
+
+O microcontrolador é o componente central da maioria dos sistemas embarcados, consistindo em um computador completo integrado em um único chip, que incorpora unidade central de processamento , memória  e periféricos de entrada e saída. Essa integração permite o desenvolvimento de soluções compactas, eficientes e economicamente viáveis, especialmente em aplicações que exigem aquisição de dados de sensores, controle de atuadores ou automação de processos \cite[p.~35]{VALDESPEREZ:2013}.
+
+Dentre os microcontroladores disponíveis no mercado, o ESP32 destaca-se como um sistema em um chip (SoC, do inglês \textit{System on a Chip}), desenvolvido pela Espressif Systems. Além de recursos clássicos de um microcontrolador, o ESP32 integra conectividade sem fio com suporte nativo a redes WiFi e Bluetooth, o que o torna especialmente adequado para aplicações de IoT, onde comunicação remota e monitoramento em tempo real são requisitos comuns \cite{ESPRESSIF:2016,ESPRESSIF:ESP32DS}. 
+
+\begin{comment}
 \section{Sistemas Embarcados}
 
 Um sistema embarcado é uma combinação integrada de \textit{hardware} e \textit{software}, sendo projetada para uma função específica. Em contraste com os computadores de uso pessoal, que atuam executando uma ampla gama de tarefas, os sistemas embarcados são criados de forma a executarem uma tarefa em específico, sendo frequentemente utilizados como parte de um sistema maior, como eletrodomésticos e automóveis \cite[p. 1]{BARR:2006}.
@@ -12,12 +22,43 @@ O microcontrolador consiste em um computador completo em um chip, contendo um pr
 
 \subsubsection{ESP32}
 
-O microcontrolador ESP32 é um sistema em um chip (SoC, do ingles \textit{System on a Chip}) de baixo custo desenvolvido pela Espressif Systems, projetado para uma vasta gama de aplicações, desde redes de sensores de baixa potência até tarefas complexas, sendo um componente central na prototipagem e desenvolvimento de projetos de Internet das Coisas (IoT) \cite{ESPRESSIF:2016}. Trata-se de um chip híbrido que integra conectividade WiFi (802.11 b/g/n) e Bluetooth em um único módulo \cite{ESPRESSIF:ESP32DS}.
-
+O microcontrolador ESP32 é um sistema em um chip (SoC, do inglês \textit{System on a Chip}) de baixo custo desenvolvido pela Espressif Systems, projetado para uma vasta gama de aplicações, desde redes de sensores de baixa potência até tarefas complexas, sendo um componente central na prototipagem e desenvolvimento de projetos de Internet das Coisas (IoT) \cite{ESPRESSIF:2016}. Trata-se de um chip híbrido que integra conectividade WiFi (802.11 b/g/n) e Bluetooth em um único módulo \cite{ESPRESSIF:ESP32DS}.
+\end{comment}
 
 \section{Internet das Coisas} %ok
 
-A Internet das Coisas (IoT, do ingles \textit{Internet of Things}) pode ser compreendida como uma rede na qual objetos físicos podem formar conexões entre si. Esses objetos podem ser equipados com sensores, atuadores e módulos de comunicação sem fio, interagindo entre si e com servidores centrais, formando um sistema inteligente e versátil, o qual pode ser aplicado em diversos setores, como agricultura, indústria, logística e automação residencial \cite{ATZORI20102787}.
+A Internet das Coisas (IoT) pode ser compreendida como uma rede na qual objetos físicos podem formar conexões entre si. Esses objetos podem ser equipados com sensores, atuadores e módulos de comunicação sem fio, interagindo entre si e com servidores centrais, formando um sistema inteligente e versátil, o qual pode ser aplicado em diversos setores, como agricultura, indústria, logística e automação residencial \cite{ATZORI20102787}.
+
+\section{Medição de Energia Elétrica} 
+
+A medição de energia elétrica em sistemas de corrente alternada envolve o entendimento de três grandezas fundamentais que compõem a potência elétrica: a potência ativa, a potência reativa e a potência aparente. A potência ativa, medida em quilowatts, representa a parcela da energia efetivamente convertida em trabalho útil, como calor, luz ou movimento. A potência reativa, expressa em quilovolt-ampères reativos, está associada à criação e manutenção de campos magnéticos em cargas indutivas, como motores e transformadores, mas não realiza trabalho útil. A potência aparente, em quilovolt-ampères, é a resultante vetorial dessas duas componentes e indica a potência total fornecida pela rede \cite{WILDI:2013}. Embora presente em todos os consumidores, a potência reativa só é tarifada para consumidores de alta tensão \cite{ANEEL:REN1000_2021}. 
+
+Transformadores são dispositivos eletromagnéticos estáticos que permitem a transferência de energia entre circuitos elétricos por meio da indução eletromagnética, sem conexão elétrica direta entre eles. São constituídos por dois ou mais enrolamentos condutores, geralmente sobre um núcleo ferromagnético comum, sendo o enrolamento primário conectado à fonte de alimentação e o secundário à carga. Sua principal função é elevar ou reduzir os níveis de tensão em sistemas de corrente alternada, mantendo constante a frequência do sinal \cite[p.~189]{WILDI:2013}. Conforme ilustrado na Figura~\ref{fig:transIdeal}, o enrolamento primário é caracterizado pela corrente $i_p(t)$ , tensão $V_p(t)$  e número de espiras $N_p$ , enquanto o enrolamento secundário é definido por $i_s(t)$ , $V_s(t)$  e $N_s$ , respectivamente.
+
+\begin{figure}[!htb]%% Ambiente figure
+     %\captionsetup{width=0.55\textwidth}%% Largura da legenda
+     \caption{Desenho esquemático de um transformador ideal}%% Legenda
+     \label{fig:transIdeal}%% Rótulo
+     \includegraphics[scale=0.45]{transformador_basico_Chapman}%% Dimensões e localização
+     \fonte{Adaptado de \cite{CHAPMAN:2013}}%% Fonte
+     \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Desenho esquemático de um transformador ideal}
+     %\addcontentsline{loge}{geralgraph}{\protect\numberline{\thegeralgraph}Fluxograma do Firmware}
+ \end{figure}
+\FloatBarrier
+
+Entre os tipos especializados, os transformadores de corrente (TCs) são projetados para medir com precisão a corrente alternada que circula em um circuito, sendo conectados em série com a carga. Devido à sua função de medição e proteção, operam com baixa potência, geralmente inferior a 200 VA \cite[p.~189]{WILDI:2013}. Um modelo comum em aplicações práticas é o transformador de corrente com núcleo partido, ilustrado na Figura~\ref{fig:transUsado}, cuja estrutura permite instalação rápida em condutores já energizados, sem necessidade de interrupção do fornecimento de energia, característica que favorece sua adoção em sistemas de monitoramento não invasivo \cite{SIEMENS:2015}. 
+
+\begin{figure}[!htb]%% Ambiente figure
+     %\captionsetup{width=0.55\textwidth}%% Largura da legenda
+     \caption{Transformador de corrente de nucleo bipartido}%% Legenda
+     \label{fig:transUsado}%% Rótulo
+     \includegraphics[scale=0.1]{transformador_nucleo_bipartido}%% Dimensões e localização
+     \fonte{Autoria Própria}%% Fonte
+     \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Transformador de corrente de nucleo bipartido}
+          %\addcontentsline{loge}{geralgraph}{\protect\numberline{\thefigure}transformador de corrente de nucleo bipartido}
+ \end{figure}
+
+\begin{comment}
 
 \section{Medição de Energia Elétrica} 
 
@@ -51,7 +92,6 @@ O enrolamento conectado à fonte de energia elétrica é denominado enrolamento 
 São transformadores especializados utilizados em série com um circuito elétrico para medir com precisão a corrente alternada que flui pelo circuito. Devido à natureza de seu uso, como medição e proteção de sistemas, a potência desses transformadores costuma ser pequena, normalmente abaixo de 200 VA \cite[p. 189]{WILDI:2013}.
 A variação com núcleo partido, ilustrada na Figura~\ref{fig:transUsado}, é particularmente interessante, pois pode ser facilmente instalada em um sistema existente sem necessidade de desconectar a linha ou interromper o fornecimento de energia \cite{SIEMENS:2015}.
 
-
 \begin{figure}[!htb]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
      \caption{Transformador de corrente de nucleo bipartido}%% Legenda
@@ -61,20 +101,19 @@ A variação com núcleo partido, ilustrada na Figura~\ref{fig:transUsado}, é p
      \addcontentsline{loge}{figure}{\protect\numberline{\thefigure}Transformador de corrente de nucleo bipartido}
           %\addcontentsline{loge}{geralgraph}{\protect\numberline{\thefigure}transformador de corrente de nucleo bipartido}
  \end{figure}
+\end{comment}
 
-\section{Medição do Fluxo de Água} %usar fotos das peças que eu tenho
 
-%A medição e o controle do fluxo de água são processos significativos para a gestão dos recursos hídricos, e por isso, vários métodos e ferramentas foram desenvolvidos para tratar estes processos, apresentando diferentes níveis de viabilidade conforme a utilização.
+\section{Medição do Fluxo de Água} 
 
-A medição e monitoramento do fluxo de água são processos importantes no gerenciamento de recursos hídricos, o que levou ao desenvolvimento de diversos métodos e ferramentas para tratar desses processos, os quais apresentam diferentes graus de viabilidade de acordo com a aplicação.
+A medição do fluxo de água é um processo essencial em diversas áreas, desde o manejo de recursos hídricos até sistemas de distribuição urbana, e envolve diferentes abordagens conforme o contexto físico e as condições de escoamento. 
 
-Para superfícies aquáticas como os rios e riachos, têm-se métodos como o medidor de molinete, o método do flutuador, a técnica dos vertedores e sensores ultrassônicos de nível, que estimam a vazão com base na velocidade da corrente e na área da seção transversal do curso d'água \cite{COSTA_Camargo_Tolentino_Akutsu_Periotto_Tanaka:2023}.
+Em cursos d’água abertos, como rios e riachos, métodos clássicos são utilizados para estimar a vazão, geralmente com base na relação entre a velocidade média do fluxo e a área da seção transversal do canal. Exemplos incluem o uso do medidor de molinete, o método do flutuador, vertedores calibrados e sensores ultrassônicos de nível, que inferem a vazão indiretamente a partir de medições de altura ou velocidade superficial \cite{COSTA_Camargo_Tolentino_Akutsu_Periotto_Tanaka:2023}. 
 
-Já em ambientes controlados nos quais os líquidos são transportados por encanamentos, como em sistemas de abastecimento e esgoto, podem ser aplicados outros métodos, como hidrômetros mecânicos, sensores eletromagnéticos, ultrassônicos \cite{flow:2016}.
+Em sistemas fechados, nos quais o líquido escoa por tubulações, como redes de abastecimento, estações de tratamento ou instalações prediais, técnicas alternativas são empregadas. Entre elas, destacam-se os hidrômetros mecânicos, sensores eletromagnéticos, que se baseiam na lei da indução de Faraday, e medidores ultrassônicos, que utilizam o efeito Doppler ou o princípio de tempo de trânsito para determinar a velocidade do fluido \cite{flow:2016}. 
 
-\subsection{YF-S201}
+O sensor YF-S201, ilustrado na Figura~\ref{fig:YF-S201}, é um dispositivo de medição de vazão volumétrica para líquidos.  Em seu núcleo, uma turbina contendo um ímã permanente é posta em rotação pelo fluxo do líquido. A cada rotação completa, o ímã passa próximo a um sensor de efeito Hall integrado ao corpo do dispositivo, o que gera um pulso elétrico de saída. Dado que a frequência desta sequência de pulsos é linearmente proporcional à velocidade do fluxo, a vazão instantânea pode ser determinada. O volume total escoado é subsequentemente calculado pela integração dos pulsos ao longo do tempo, utilizando o fator de calibração característico do sensor \cite{YF-S201:datasheet}.
 
-O sensor de vazão de água YF-S201, ilustrado na Figura~\ref{fig:YF-S201}, é composto por uma turbina com um ímã acoplado e um sensor de efeito Hall colocado externamente. Quando a água passa pelo sensor, ela faz a turbina girar, movimentando o ímã. Esse movimento gera um sinal no sensor de efeito Hall, que produz pulsos elétricos cuja frequência é proporcional à vazão de água que passa pelo sensor. Esses pulsos elétricos podem ser lidos e interpretados por um sistema de controle, como um microcontrolador, para estimar o volume ou a taxa de fluxo de água.
 
 \begin{figure}[!htb]%% Ambiente figure
      %\captionsetup{width=0.55\textwidth}%% Largura da legenda
